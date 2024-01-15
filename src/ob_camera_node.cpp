@@ -26,6 +26,7 @@ OBCameraNode::OBCameraNode(ros::NodeHandle& nh, ros::NodeHandle& nh_private,
                            std::shared_ptr<ob::Device> device)
     : nh_(nh),
       nh_private_(nh_private),
+      image_transport_(nh),
       device_(std::move(device)),
       device_info_(device_->getDeviceInfo()) {
   stream_name_[COLOR] = "color";
