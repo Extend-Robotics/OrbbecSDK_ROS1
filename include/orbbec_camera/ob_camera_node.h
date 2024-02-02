@@ -417,6 +417,7 @@ class OBCameraNode {
   std::shared_ptr<std::thread> colorFrameThread_ = nullptr;
   std::mutex colorFrameMtx_;
   std::condition_variable colorFrameCV_;
+  bool use_hardware_time_ = false;
 };
 
 }  // namespace orbbec_camera
