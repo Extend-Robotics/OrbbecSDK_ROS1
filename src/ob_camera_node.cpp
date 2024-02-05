@@ -1321,7 +1321,8 @@ void OBCameraNode::onNewFrameCallback(std::shared_ptr<ob::Frame> frame,
 
   if (stream_index == DEPTH) {
     auto depth_scale = video_frame->as<ob::DepthFrame>()->getValueScale();
-    image = image * depth_scale;
+    if(depth_scale != 1.0)
+        image = image * depth_scale;
   }
   auto image_publisher = image_publishers_[stream_index];
   auto image_msg =
