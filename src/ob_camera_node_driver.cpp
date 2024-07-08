@@ -145,8 +145,8 @@ void OBCameraNodeDriver::init() {
 }
 
 std::shared_ptr<ob::Device> OBCameraNodeDriver::selectDevice(
-    const std::shared_ptr<ob::DeviceList> &list) {
-  if (device_num_ == 1) {
+    const std::shared_ptr<ob::DeviceList>& list) {
+  if (serial_number_.empty() && usb_port_.empty()) {
     ROS_INFO_STREAM("Connecting to the default device");
     return list->getDevice(0);
   }
