@@ -1268,6 +1268,13 @@ void OBCameraNode::onNewFrameCallback(std::shared_ptr<ob::Frame> frame,
   int height = static_cast<int>(video_frame->height());
   auto frame_timestamp = getFrameTimestampUs(frame);
   auto timestamp = fromUsToROSTime(frame_timestamp);
+  
+  auto hw_timestamp = video_frame->timeStampUs();
+  auto system_timestamp = video_frame->systemTimeStampUs();
+  auto diff = hw_timestamp - frame_timestamp;
+
+  ROS_INFO_STREAM("publishing" <<  " hw: " << hw_timestamp << " frame " << frame_timestamp << " system " << system_timestamp << " ROS " << timestamp);  
+  
   std::string frame_id = (depth_registration_ && stream_index == DEPTH)
                              ? depth_aligned_frame_id_[stream_index]
                              : optical_frame_id_[stream_index];
