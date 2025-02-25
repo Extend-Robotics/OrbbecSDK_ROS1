@@ -1356,6 +1356,7 @@ void OBCameraNode::onNewFrameCallback(std::shared_ptr<ob::Frame> frame,
 
   if (stream_index == DEPTH) {
     auto depth_scale = video_frame->as<ob::DepthFrame>()->getValueScale();
+  if(depth_scale != 1.0)
     image = image * depth_scale;
 
     // auto current_time_stamp_ms = timestamp.toNSec() / 1000000;
