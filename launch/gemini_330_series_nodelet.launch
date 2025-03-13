@@ -48,19 +48,19 @@
     <arg name="depth_rotation" default="0"/>
 
     <!-- Left IR camera parameters -->
-    <arg name="left_ir_width" default="0"/>
-    <arg name="left_ir_height" default="0"/>
-    <arg name="left_ir_fps" default="0"/>
-    <arg name="enable_left_ir" default="true"/>
+    <arg name="left_ir_width" default="$(arg depth_width)"/>
+    <arg name="left_ir_height" default="$(arg depth_height)"/>
+    <arg name="left_ir_fps" default="$(arg depth_fps)"/>
+    <arg name="enable_left_ir" default="false"/>
     <arg name="left_ir_format" default="ANY"/>
     <!-- left ir rotation degree : 0, 90, 180, 270 -->
     <arg name="left_ir_rotation" default="0"/>
 
     <!-- Right IR camera parameters -->
-    <arg name="right_ir_width" default="0"/>
-    <arg name="right_ir_height" default="0"/>
-    <arg name="right_ir_fps" default="0"/>
-    <arg name="enable_right_ir" default="true"/>
+    <arg name="right_ir_width" default="$(arg depth_width)"/>
+    <arg name="right_ir_height" default="$(arg depth_height)"/>
+    <arg name="right_ir_fps" default="$(arg depth_fps)"/>
+    <arg name="enable_right_ir" default="false"/>
     <arg name="right_ir_format" default="ANY"/>
     <arg name="right_ir_rotation" default="0"/>
 
